@@ -9,8 +9,10 @@ struct ray_t
 		m_direction{direction}
 	{}
 
+	glm::vec3 at(float t) const { return m_origin + ((normalize(m_direction)) * t); }
 	glm::vec3 GetPoint(float distance) const { return m_origin + (distance * normalize(m_direction)); }
+	glm::vec3 operator * (float distance) const { return m_origin + (distance * normalize(m_direction)); }
 
-		glm::vec3 m_origin;
-		glm::vec3 m_direction;
+	glm::vec3 m_origin{ 0 };
+	glm::vec3 m_direction{ 0 };
 };

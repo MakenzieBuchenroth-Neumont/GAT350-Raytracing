@@ -1,8 +1,15 @@
+#include "Renderer.h"
+#include "Ray.h"
+#include "Random.h"
 #include <iostream>
 
-#include "Renderer.h"
-
 int main(int, char**) {
+	seedRandom((int)time(nullptr));
+
+	for (int i = 0; i < 10; i++) {
+		std::cout << random(1, 10) << std::endl;
+	}
+
 	std::cout << "Hello World";
 
 	Renderer renderer;
