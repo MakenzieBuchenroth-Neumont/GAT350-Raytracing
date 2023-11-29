@@ -1,7 +1,5 @@
 #pragma once
 #include <stdlib.h>
-#include <utility>
-#include <cmath>
 
 inline void seedRandom(unsigned int seed) {
 	srand(seed);
