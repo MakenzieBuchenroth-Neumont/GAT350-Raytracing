@@ -42,9 +42,9 @@ bool Renderer::createWindow(const std::string& title, int width, int height) {
 
 }
 
-void Renderer::presentCanvas(const Canvas& canvas) {
+void Renderer::presentCanvas(const Canvas* canvas) {
     // copy canvas texture to renderer
-    SDL_RenderCopy(renderer, canvas.m_texture, NULL, NULL);
+    SDL_RenderCopy(renderer, canvas->m_texture, NULL, NULL);
     // present renderer to screen
     SDL_RenderPresent(renderer);
 }
