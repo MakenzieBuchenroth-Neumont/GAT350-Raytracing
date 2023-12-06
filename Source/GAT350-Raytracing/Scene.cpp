@@ -65,7 +65,8 @@ color3_t Scene::trace(const ray_t& ray, float minDistance, float maxDistance, ra
 			return color * trace(scattered, minDistance, maxDistance, raycastHit, depth - 1);
 		}
 		else {
-			return color3_t{ 0, 0, 0 };
+			// reached maximum depth of bounces (get emissive color, will be black except for Emissive materials)
+			return raycastHit.material->getEmissive();
 		}
 	}
 
