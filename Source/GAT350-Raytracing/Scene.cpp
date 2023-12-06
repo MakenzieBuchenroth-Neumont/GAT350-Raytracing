@@ -31,13 +31,13 @@ void Scene::render(Canvas& canvas, int numSamples, int depth) {
 				raycastHit_t raycastHit;
 				color += trace(ray, 0, 100, raycastHit, m_depth);
 			}
-			std::cout << std::setprecision(2) << std::setw(5) << ((y / (float)canvas.getSize().y) * 100) << "%\n";
 
 			// draw color to canvas point (pixel)
 			// get average color (average = (color + color + color) / number of samples)
 			color /= numSamples;
 			canvas.DrawPoint(pixel, color4_t(color, 1));
 		}
+			std::cout << std::setprecision(2) << std::setw(5) << ((y / (float)canvas.getSize().y) * 100) << "%\n";
 	}
 }
 

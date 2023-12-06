@@ -10,6 +10,7 @@
 #include "Triangle.h"
 #include <iostream>
 #include <memory>
+#include "Mesh.h"
 
 	void InitScene01(Scene& scene, const Canvas& canvas);
 	void InitScene02(Scene& scene, const Canvas& canvas);
@@ -30,11 +31,7 @@ int main(int, char**) {
 
 	Canvas canvas(width, height, renderer);
 
-	float aspectRatio = canvas.getSize().x / (float)canvas.getSize().y;
-	std::shared_ptr<Camera> camera = std::make_shared<Camera>(glm::vec3{ 0, 1, 10 }, glm::vec3{ 0, 0, 0 }, glm::vec3{ 0, 1, 0 }, 20.0f, aspectRatio);
-
 	Scene scene(glm::vec3{ 1.0f }, glm::vec3{ 0.5f, 0.7f, 1.0f }); // sky color could be set with the top and bottom color
-	scene.SetCamera(camera);
 	/*
 	// create material
 	auto lambertian = std::make_shared<Lambertian>(color3_t{ 0, 0, 1 });
@@ -73,7 +70,7 @@ int main(int, char**) {
 	}
 	*/
 
-	InitScene01(scene, canvas);
+	InitScene02(scene, canvas);
 
 		// render scene
 		canvas.clear({ 0, 0, 0, 1 });
