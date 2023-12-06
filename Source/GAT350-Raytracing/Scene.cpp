@@ -2,8 +2,10 @@
 #include "Canvas.h"
 #include "MathUtils.h"
 #include <glm/glm.hpp>
+#include <iostream>
+#include <iomanip>
 
-void Scene::render(Canvas& canvas, int numSamples) {
+void Scene::render(Canvas& canvas, int numSamples, int depth) {
 	// cast ray for each point (pixel) on the canvas
 	for (int y = 0; y < canvas.getSize().y; y++) {
 		for (int x = 0; x < canvas.getSize().x; x++) {
@@ -29,6 +31,7 @@ void Scene::render(Canvas& canvas, int numSamples) {
 				raycastHit_t raycastHit;
 				color += trace(ray, 0, 100, raycastHit, m_depth);
 			}
+			std::cout << std::setprecision(2) << std::setw(5) << ((y / (float)canvas.getSize().y) * 100) << "%\n";
 
 			// draw color to canvas point (pixel)
 			// get average color (average = (color + color + color) / number of samples)
